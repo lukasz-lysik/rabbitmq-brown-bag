@@ -35,7 +35,7 @@ namespace HelloWorld.Consumer
                     // 2. Start consuming
                     
                     var consumer = new QueueingBasicConsumer(channel);
-                    var noAck = true;
+                    var noAck = false;
                     channel.BasicConsume(queueName, noAck, consumer);
                     
                     while (true)
@@ -46,6 +46,9 @@ namespace HelloWorld.Consumer
                         var message = Encoding.UTF8.GetString(body);
 
                         Console.WriteLine("Received: {0}", message);
+                        
+                        channel.BasicAck(ea.DeliveryTag, false);
+
                         //Console.WriteLine("ConsumerTag: {0}", consumer.ConsumerTag);
                     }
                 }

@@ -1,4 +1,5 @@
-﻿// ReSharper Disable All 
+﻿using System;
+// ReSharper Disable All 
 using System.Collections.Generic;
 using System.Text;
 using RabbitMQ.Client;
@@ -26,13 +27,11 @@ namespace HelloWorld.Producer
                     var autoDelete = false;
                     // Note: exclusive:true + autoDelete:true is used for RPC (later)
                     var arguments = new Dictionary<string, object>();
-
                     channel.QueueDeclare(queueName, durable, exclusive, autoDelete, arguments);
 
                     // 2. Prepare message
 
-                    var message = "Hello World!";
-                    var body = Encoding.UTF8.GetBytes(message);
+                    
 
                     // 3. Publish message
 
@@ -45,10 +44,26 @@ namespace HelloWorld.Producer
                     properties.ContentType = "text/plain";
                     properties.Headers = new Dictionary<string, object>();
                     properties.Headers.Add("anything", "here");
-
                     #endregion
 
-                    channel.BasicPublish("", queueName, mandatory, properties, body);
+                    var i = 1;
+                    while (true)
+                    {
+                        Console.WriteLine("Press ENTER to publish...");
+                        Console.ReadLine();
+
+                        var message = string.Format("Hello World! {0}", i++);
+                        var body = Encoding.UTF8.GetBytes(message);
+
+                        channel.BasicPublish(
+                            exchange: "", 
+                            routingKey: queueName, 
+                            mandatory: mandatory, 
+                            basicProperties: properties, 
+                            body:body);
+
+                        Console.WriteLine("Published: '{0}'", message);
+                    }
                 }
             }
         }
