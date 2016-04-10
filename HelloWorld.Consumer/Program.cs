@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using RabbitMQ.Client;
@@ -23,7 +23,7 @@ namespace HelloWorld.Consumer
                 {
                     // 1. Declare queue
                     
-                    var queueName = "bb_01_hello_world";
+                    var queueName = "4dev_01_hello_world";
                     var durable = true;
                     var exclusive = false;
                     var autoDelete = false;

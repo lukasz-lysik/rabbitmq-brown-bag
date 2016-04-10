@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 // ReSharper Disable All 
 using System.Collections.Generic;
 using System.Text;
@@ -21,7 +21,7 @@ namespace HelloWorld.Producer
                 {
                     // 1. Declare queue
 
-                    var queueName = "bb_01_hello_world";
+                    var queueName = "4dev_01_hello_world";
                     var durable = true;
                     var exclusive = false;
                     var autoDelete = false;

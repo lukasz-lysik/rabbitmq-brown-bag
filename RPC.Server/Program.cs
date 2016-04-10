@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -24,7 +24,7 @@ namespace RPC.Server
             {
                 using (var channel = connection.CreateModel())
                 {
-                    var queueName = "bb_06_rpc";
+                    var queueName = "4dev_06_rpc";
                     channel.QueueDeclare(queueName, true, false, false, null);;
 
                     var consumer = new QueueingBasicConsumer(channel);

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +21,7 @@ namespace DelayedDelivery.Consumer
                 {
                     // 1. Setup temporary queue
 
-                    var exchangeName = "bb_09_x_delayed_delivery";
+                    var exchangeName = "4dev_09_x_delayed_delivery";
                     channel.ExchangeDeclare(exchangeName, "fanout");
 
                     var queueName = channel.QueueDeclare().QueueName;

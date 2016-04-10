@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using RabbitMQ.Client;
 
@@ -22,7 +22,7 @@ namespace TopicRouting.Consumer
                 {
                     // 1. Setup temporary queue
 
-                    var exchangeName = "bb_05_x_news";
+                    var exchangeName = "4dev_05_x_news";
                     var queueName = channel.QueueDeclare().QueueName;
                     channel.QueueBind(queueName, exchangeName, subscription);
 

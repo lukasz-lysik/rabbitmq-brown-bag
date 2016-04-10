@@ -1,4 +1,4 @@
-﻿// ReSharper Disable All
+// ReSharper Disable All
 
 using System;
 using System.Text;
@@ -24,7 +24,7 @@ namespace PubSub.Producer
                 {
                     // 1. Declare queue
 
-                    var exchangeName = "bb_03_x_pub_sub";
+                    var exchangeName = "4dev_03_x_pub_sub";
                     channel.ExchangeDeclare(exchangeName, "fanout");
 
                     var timer = new Timer(1000);

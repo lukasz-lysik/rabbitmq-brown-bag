@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Timers;
 using RabbitMQ.Client;
@@ -26,7 +26,7 @@ namespace TopicRouting.Producer
                 {
                     // 1. Declare queue
 
-                    var exchangeName = "bb_05_x_news";
+                    var exchangeName = "4dev_05_x_news";
                     channel.ExchangeDeclare(exchangeName, "topic");
 
                     var timer = new Timer(1000);

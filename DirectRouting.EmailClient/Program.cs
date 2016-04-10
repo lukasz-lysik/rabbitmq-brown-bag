@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Threading.Tasks;
 using RabbitMQ.Client;
@@ -7,7 +7,7 @@ namespace DirectRouting.EmailClient
 {
     class Program
     {
-        private string exchangeName = "bb_04_x_emails";
+        private string exchangeName = "4dev_04_x_emails";
 
         static void Main(string[] args)
         {
@@ -30,8 +30,8 @@ namespace DirectRouting.EmailClient
         {
             using (var channel = connection.CreateModel())
             {
-                var exchangeName = "bb_04_x_emails";
-                var queueName = "bb_04_consumer_" + address;
+                var exchangeName = "4dev_04_x_emails";
+                var queueName = "4dev_04_consumer_" + address;
 
                 channel.ExchangeDeclare(exchangeName, "direct");
                 channel.QueueDeclare(queueName, true, false, false, null);
@@ -58,7 +58,7 @@ namespace DirectRouting.EmailClient
             {
                 // 1. Declare queue
 
-                var exchangeName = "bb_04_x_emails";
+                var exchangeName = "4dev_04_x_emails";
                 channel.ExchangeDeclare(exchangeName, "direct");
                 
                 channel.BasicReturn += (sender, args) =>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using RabbitMQ.Client;
@@ -18,10 +18,10 @@ namespace DelayedDelivery.Producer
             {
                 using (var channel = connection.CreateModel())
                 {
-                    var exchangeName = "bb_09_x_delayed_delivery";
+                    var exchangeName = "4dev_09_x_delayed_delivery";
                     channel.ExchangeDeclare(exchangeName, "fanout");
 
-                    var queueName = "bb_09_delayed_messages";
+                    var queueName = "4dev_09_delayed_messages";
 
                     var properties = new Dictionary<string, object>();
                     properties.Add("x-dead-letter-exchange", exchangeName);

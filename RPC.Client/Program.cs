@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,7 +38,7 @@ namespace RPC.Client
                 var properties = channel.CreateBasicProperties();
                 properties.CorrelationId = item.Key;
                 properties.ReplyTo = responseQueueName;
-                channel.BasicPublish("", "bb_06_rpc", properties, body);
+                channel.BasicPublish("", "4dev_06_rpc", properties, body);
             }
 
             Console.WriteLine("Waiting for responses...");

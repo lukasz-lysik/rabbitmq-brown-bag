@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using RabbitMQ.Client;
 
@@ -19,8 +19,8 @@ namespace PubSub.DurableConsumer
                 {
                     // 1. Setup queue
 
-                    var exchangeName = "bb_03_x_pub_sub";
-                    var queueName = "bb_03_pub_sub_consumer";
+                    var exchangeName = "4dev_03_x_pub_sub";
+                    var queueName = "4dev_03_pub_sub_consumer";
 
                     channel.QueueDeclare(queueName, true, false, false, null);
                     channel.QueueBind(queueName, exchangeName, "");
